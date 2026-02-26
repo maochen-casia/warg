@@ -98,21 +98,4 @@ You can customize the hyperparameters, dataset, and model settings by modifying 
 
 
 
-## ✍️ Citation
-
-If you find this work useful for your research, please consider citing:
-
-```
-@article{your_citation_here,
-  title={Globally Localizing Lunar Rover in Pixels via Graph Alignment},
-  author={Your Name and Others},
-  journal={Your Journal/Conference},
-  year={2024}
-}
-```
-
-------
-
-
-
 <div align="center">  <sub>For any questions, please open an issue or contact the authors.</sub></div>
