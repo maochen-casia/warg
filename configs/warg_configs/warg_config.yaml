@@ -1,0 +1,36 @@
+exp_name: warg_pretrain
+seed: 42
+data:
+  dataset: LuSNAR
+  data_keys: [train, val, test]
+  batch_size: 8
+  left_image_size: 1024
+  sat_image_size: &sat_image_size 1024
+  aug: True
+  max_train_init_offset: 20
+  max_test_init_offset: 50
+  max_aug_offset: 70
+  max_aug_rotate: 180
+model:
+  name: WARG
+  dino_model_name: dinov3_vitl16
+  num_nodes_per_scale: 64
+  hid_dim: 64
+  match_dim: 8
+  train_search_steps: 32
+  eval_search_steps: 256
+  device: cuda:0
+trainer:
+  num_epochs: 10
+  optimizer: AdamW
+  lr: 1e-4
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+  eps: 1e-8
+  num_warmup_steps: 500
+  mixed_precision: false
+evaluator:
+  sat_image_size: *sat_image_size
+  sat_image_coverage: 167.82
+  metrics: [mean, std, median, boxplot, accuracy_1, accuracy_3, accuracy_5, accuracy_10, accuracy_30, accuracy_50]
+  loss_metric: median
